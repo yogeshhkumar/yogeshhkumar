@@ -111,3 +111,31 @@
 	        int processarr[3]={0,1,2};
 	        int availbale[3]={3,2,2};
 	
+	        
+	        int allocated[3][3]={
+	                      {0, 0, 1},
+	                      {3, 2, 0},
+	                      {2, 1, 1},
+	                     };
+	        int max[3][3]={
+	                     {8, 4, 3},
+	                     {6, 2, 0},
+	                     {3, 3, 3},
+	                    };
+	        int number_of_request;
+	        scanf("%d",&number_of_request);
+	          int requestarr[resources];
+	          
+	            while(number_of_request--){
+	                int index_of_process;
+	                    scanf("%d",&index_of_process);
+	                for(int j=0;j<resources;j++){
+	                    scanf("%d",&requestarr[j]);
+	                }
+	
+	            request(processarr,availbale,requestarr,allocated,max,index_of_process);
+	
+	            }
+	       
+	
+	}
