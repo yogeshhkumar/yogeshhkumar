@@ -1,0 +1,38 @@
+
+#include <stdio.h>
+	
+	
+	const int process=3,resources=3;
+	  void calculate_safe_sequence(int [][resources],int [][resources],int [][resources],int *,int *); 
+	
+	  //calculate need matrix
+	
+	 void calculate(int need[][resources],int max[][resources],int allocated[][resources]){
+	
+	     for(int i=0;i<process;i++){
+	         for(int j=0;j<resources;j++){
+	             need[i][j]=max[i][j]-allocated[i][j];
+	                      }
+	     }
+	    
+	
+	
+	 }
+	 //check request can be granted or not and update accordingly 
+	void request(int *processarr,int *availbale,int *requestarr,int allocated[][resources],int max[][resources],int index)
+	{
+	        int need[process][resources];
+	             int ava[resources];
+	                  int alloc[process][resources];
+	                  //memcpy(ava,availbale,sizeof(availbale));
+	                   for(int i=0;i<resources;i++)ava[i]=availbale[i];
+	                  
+	          for(int i=0;i<process;i++){
+	         for(int j=0;j<resources;j++){
+	            alloc[i][j]=allocated[i][j];
+	                      }
+	     }
+	        calculate(need,max,allocated);
+	       
+	        
+	    
