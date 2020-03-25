@@ -35,4 +35,74 @@
 	        calculate(need,max,allocated);
 	       
 	        
+	    int j=0;
+	        for( j=0;j<resources;j++){
+	            if(requestarr[j]>need[index][j]||requestarr[j]>availbale[j]){
+	              printf("Request can't be granted for process %d\n",index);
+	                return ;
+	            }
+	        }
+	        if(j==resources){
+	            for(int y=0;y<resources;y++){
+	                    //updation
+	                    ava[y]-=requestarr[y];
+	                    alloc[index][y]+=requestarr[y];
+	                    need[index][y]-=requestarr[y];
+	
+	            }
+	        }  
 	    
+	      printf("Request can be granted for process %d\n",index);
+	
+	        calculate_safe_sequence(need,alloc,max,ava,processarr);
+	
+	}
+	
+	//calculating safe sequence with updated value
+	void calculate_safe_sequence(int need[][resources],int allocated[][resources],int max[][resources],int *availbale,int *processarr)
+	
+	{  //unfinished process
+	 
+	
+	     int finish[3]={0,0,0};
+	    int safe[process];
+	    int count=0; 
+	    while(count<process){
+	        int found=0;
+	    for(int i=0;i<process;i++){
+	       
+	        if(finish[i]==0){
+	            int g=0;
+	            for( g=0;g<resources;g++){
+	                if(need[i][g]>availbale[g]){
+	                    break;
+	                }
+	            }
+	            if(g==resources){
+	                for(int y=0;y<resources;y++){
+	                        availbale[y]+=allocated[i][y];
+	
+	            }
+	
+	        finish[i]=1;
+	        found=1;
+	        safe[count++]=processarr[i];
+	
+	            }
+	    }
+	    }
+	    if(found==0){
+	            printf("OOPS! No safe sequence exist\n");
+	        return;
+	    }
+	
+	
+	
+	    }
+	    //printing the safe sequenece
+	  printf("safe sequence is:\n");
+	        for(int i=0;i<process;i++)printf("%d ",safe[i]);
+	
+	
+	}
+	
