@@ -101,8 +101,4 @@
 	    }
 	    //printing the safe sequenece
 	  printf("safe sequence is:\n");
-	        for(int i=0;i<process;i++)printf("%d ",safe[i]);
-	
-	
-	}
-	
+	       
